@@ -130,18 +130,70 @@ border-bottom-color: var(--yellow-color);
     margin: 0 auto;
     width: 150px;
     height: 50px;
-    border: 0;
-    background-color: var(--yellow-color);
+    border: 5px solid var(--yellow-color);
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: bold;
+    color: var(--blue-color);
+    background-color: var(--yellow-color);
+    transition: .3s ease-in-out
 }
 
 .cards__load-more:focus {
 outline: none;
 }
 
+.cards__load-more:hover {
+background-color: #fff;
+}
+
+.loader {
+    width: 250px;
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.loader__bubble {
+    border-radius: 50%;
+}
+
+
+.loader__bubble:nth-of-type(1) {
+    background-color: var(--yellow-color);
+    width: 30px;
+    height: 30px;
+    animation: loading infinite .7s ease-in-out;
+}
+
+.loader__bubble:nth-of-type(2) {
+    background-color: var(--blue-color);
+    width: 20px;
+    height: 20px;
+    animation: loading infinite .7s ease-in-out;
+    animation-delay: .3s;
+}
+
+.loader__bubble:nth-of-type(3) {
+    background-color: var(--yellow-color);
+    width: 10px;
+    height: 10px;
+    animation: loading infinite .7s ease-in-out;
+}
+
+.loader--is-visible {
+ display: none;
+}
+
+@keyframes loading {
+
+    100%  {
+            width: 60px;
+            height: 60px;
+    }
+}
 
 
 
