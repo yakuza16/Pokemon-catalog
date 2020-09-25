@@ -1,7 +1,6 @@
+class Pokemon {
 
-class Pokemon{
-  
-    constructor(){
+    constructor() {
         this.loader = null;
         this.pokemonCatalog = null;
         this.loadMoreButton = null;
@@ -10,33 +9,40 @@ class Pokemon{
         this.version = 'v1';
 
         this.UIIdis = {
-        cardsCatalogId: 'js-cards-catalog',
-        loadMoreBtnId: 'js-loadMore',
-        loaderId: 'js-loader',
+            cardsCatalogId: 'js-cards-catalog',
+            loadMoreBtnId: 'js-loadMore',
+            loaderId: 'js-loader',
         }
 
-        this.cards = [];
+        this.cardsCollection = [];
 
-       this.API = `https://api.pokemontcg.io/v1/cards/?page=${this.page}&pageSize=${this.pageSize}`;
+        this.API = `https://api.pokemontcg.io/v1/cards/?page=${this.page}&pageSize=${this.pageSize}`;
     }
 
-    initializeApp(){
-    this.bindElements();
-    this.pullCards()
+    initializeApp() {
+        this.bindElements();
+        this.pullCards()
     }
 
-    bindElements(){
-    this.loader = document.getElementById(this.UIIdis.loaderId);
-    this.pokemonCatalog = document.getElementById(this.UIIdis.cardsCatalogId);
-    this.loadMoreButton = document.getElementById(this.UIIdis.loadMoreBtnId)
+    bindElements() {
+        this.loader = document.getElementById(this.UIIdis.loaderId);
+        this.pokemonCatalog = document.getElementById(this.UIIdis.cardsCatalogId);
+        this.loadMoreButton = document.getElementById(this.UIIdis.loadMoreBtnId)
     };
 
-    async pullCards(){
-        const {cards} = await this.fetchData(this.API);
+    async pullCards() {
+        const {
+            cards
+        } = await this.fetchData(this.API);
         console.log(cards)
+        this.cardsCollection = [...cards];
+        console.log(this.cardsCollection);
+        this.cardsCollection.forEach(card =>
+            this.displayPokemon()
+        )
     }
 
-   async fetchData(URL){
+    async fetchData(URL) {
         try {
             const response = await fetch(URL);
             const parsedResponse = await response.json();
@@ -46,6 +52,36 @@ class Pokemon{
             console.log(error);
             return;
         }
+
+    }
+
+    displayPokemon() {
+        const pokemonCard = document.createElement('div');
+        pokemonCard.classList.add('card');
+        pokemonCard.innerHTML = `
+        
+        <div class="card__upper-infos">
+        <h6 class="card__title" id="js-cardTitle">${this.cardsCollection.name}</h6>
+        <p class="card__number">Nr: <span class="card__number-id" id="js-cardNumber">55</span></p>
+    </div>
+
+
+    
+    <div class="card__image-container">
+        <img src="" alt="" class="card__image" id="js-cardImage">
+    </div>
+
+
+    <div class="card__bottom-infos">
+        <p class="card__supertype" id="js-supertypeInfo">Pokemon</p>
+        <p class="card__subtype" id="js-subtypeInfo">Stage 1</p>
+        <p class="card__rarity" id="jsrarityInfo">Uncommon</p>
+    </div>
+        
+        
+        `;
+
+        this.pokemonCatalog.appendChild(pokemonCard);
 
     }
 

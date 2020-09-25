@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Cards</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <div class="wrapper">
-<header class="header">
-<h1 class="header__heading"><span class="header__heading-pokemon">Pokemon </span><span class="header__heading-catalog">catalog</span></h1>
-<input type="text" class="header__search" placeholder="Search">
-</header>
+        <header class="header">
+            <h1 class="header__heading">
+                <span class="header__heading-pokemon">Pokemon </span><span class="header__heading-catalog">catalog</span>
+            </h1>
+            <input type="text" class="header__search" placeholder="Search">
+        </header>
 
-<main class="cards" id="js-cards-catalog">
+        <main class="cards" id="js-cards-catalog">
 
-<div class="card">
+            <!-- <div class="card">
 
 
     <div class="card__upper-infos">
@@ -36,19 +40,20 @@
         <p class="card__rarity" id="jsrarityInfo">Uncommon</p>
     </div>
 
-</div>
+</div> -->
 
 
-</main>
-<button class="cards__load-more " id="js-loadMore">Load More</button>
+        </main>
+        <button class="cards__load-more " id="js-loadMore">Load More</button>
 
-<div class="loader loader--is-visible" id="js-loader">
-    <span class="loader__bubble"></span>
-    <span class="loader__bubble"></span>
-    <span class="loader__bubble"></span>
-</div>
+        <div class="loader loader--is-visible" id="js-loader">
+            <span class="loader__bubble"></span>
+            <span class="loader__bubble"></span>
+            <span class="loader__bubble"></span>
+        </div>
 
     </div>
     <script src="/scripts/Pokemon.js"></script>
 </body>
+
 </html>
