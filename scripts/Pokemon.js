@@ -73,7 +73,7 @@ class Pokemon {
 
     displayPokemon(index) {
         const pokemonCard = document.createElement("div");
-        pokemonCard.setAttribute('data-pokemon', `data-pokemon="${this.cardsCollection[index].name}"`)
+        pokemonCard.setAttribute('data-pokemon', `${this.cardsCollection[index].name}`)
         pokemonCard.classList.add("card");
         pokemonCard.innerHTML = `
         
@@ -99,7 +99,8 @@ class Pokemon {
         const searchedName = (e.target.value).toLowerCase();
         this.currentCards.filter(card => {
             card.dataset.pokemon.toLowerCase() === searchedName ?
-                card.classList.add('loader--is-visible') : card.classList.remove('loader--is-visible')
+                card.classList.remove('loader--is-visible') :
+                card.classList.add('loader--is-visible')
         })
 
 
