@@ -185,7 +185,7 @@
     animation: loading infinite .7s ease-in-out;
 }
 
-.loader--is-visible {
+.is-visible {
     display: none;
 }
 

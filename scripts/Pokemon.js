@@ -41,8 +41,8 @@ class Pokemon {
     }
 
     toggleVisibility() {
-        this.loadMoreButton.classList.toggle("loader--is-visible");
-        this.loader.classList.toggle("loader--is-visible");
+        this.loadMoreButton.classList.toggle("is-visible");
+        this.loader.classList.toggle("is-visible");
     }
 
     async pullCards() {
@@ -93,21 +93,16 @@ class Pokemon {
         this.pokemonCatalog.appendChild(pokemonCard);
         this.currentCards = [...document.querySelectorAll(this.cardSelector)];
     }
-
+    
     searchPokemon(e) {
         console.log(this.currentCards);
         const searchedName = (e.target.value).toLowerCase();
         this.currentCards.filter(card => {
-            card.dataset.pokemon.toLowerCase() === searchedName ?
-                card.classList.remove('loader--is-visible') :
-                card.classList.add('loader--is-visible')
+            card.dataset.pokemon.toLowerCase().includes(searchedName)  ?
+                card.classList.remove('is-visible') :
+                card.classList.add('is-visible')
         })
-
-
     }
-
-
-
 
 }
 
