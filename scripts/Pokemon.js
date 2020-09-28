@@ -82,9 +82,9 @@ class Pokemon {
         <img src="${this.cardsCollection[index].imageUrl}" alt="" class="card__image" id="js-cardImage">
     </div>
     <div class="card__bottom-infos">
-        <p class="card__supertype" id="js-supertypeInfo">${this.cardsCollection[index].supertype}</p>
-        <p class="card__subtype" id="js-subtypeInfo">${this.cardsCollection[index].subtype}</p>
-        <p class="card__rarity" id="jsrarityInfo">${this.cardsCollection[index].rarity}</p>
+        <p class="card__supertype" id="js-supertypeInfo">Supertype: ${this.cardsCollection[index].supertype}</p>
+        <p class="card__subtype" id="js-subtypeInfo">Subtype: ${this.cardsCollection[index].subtype}</p>
+        <p class="card__rarity" id="jsrarityInfo">Rarity: ${this.cardsCollection[index].rarity}</p>
     </div>
         `;
         this.pokemonCatalog.appendChild(pokemonCard);
