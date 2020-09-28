@@ -19,7 +19,7 @@
 }
 
 .wrapper {
-    margin-top: 10px;
+    margin-top: 10px auto;
     width: 98vw;
     display: flex;
     flex-direction: column;
@@ -67,7 +67,7 @@
 }
 
 .cards {
-    margin-top: 50px;
+    margin: 50px auto;
     width: 90%;
     display: flex;
     flex-wrap: wrap;
@@ -75,23 +75,21 @@
 }
 
 .card {
-    border: 1px solid black;
-    /* flex-basis: 80%; */
+    outline: var(--yellow-color) outset 4px;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto';
     align-items: center;
-    margin-bottom: 20px;
+    margin:15px 30px;
+    user-select: none;
 }
 
 .card__upper-infos {
-    border: 1px solid black;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: var(--navy-blue-color);
-
 }
 
 .card__title {
@@ -107,7 +105,6 @@
     margin: 8px 0;
     width: 170px;
     height: 220px;
-    outline: var(--yellow-color) outset 5px;
 }
 
 .card__image {
@@ -162,7 +159,6 @@
     border-radius: 50%;
 }
 
-
 .loader__bubble:nth-of-type(1) {
     background-color: var(--yellow-color);
     width: 30px;
@@ -187,6 +183,57 @@
 
 .is-visible {
     display: none;
+}
+
+@media(min-width: 1200px){
+    .wrapper {
+        margin: 50px auto;
+        width: 40vw;
+    }
+
+    .header__heading-pokemon, .header__heading-catalog {
+       font-size: 45px;
+       transition: color .3s ease-in-out;
+    }
+
+    .header__heading-pokemon:hover {
+        color: var(--blue-color);
+    }
+
+    .header__heading-catalog:hover {
+        color: var(--yellow-color)
+    }
+    
+    .header__search {
+        width: 30%;
+        font-size: 30px;
+    }
+
+    .cards {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card {
+        flex-basis: 25%;
+        transition: background-color .3s ease-in-out;
+    }
+
+    .card:hover {
+        background-color: var(--yellow-color);
+    }
+
+    .card__image-container {
+        margin: 2px 0;
+        width: 250px;
+        height: 320px;
+    }
+    
+    .cards__load-more{
+        width: 210px;
+        height: 70px;
+        margin-top: 10px;
+    }
 }
 
 @keyframes loading {

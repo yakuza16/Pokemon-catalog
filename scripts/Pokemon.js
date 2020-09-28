@@ -7,6 +7,7 @@ class Pokemon {
         this.currentCards = null;
         this.page = 1;
         this.pageSize = 2;
+        this.cardsCollection = [];
 
         this.UIIdis = {
             cardsCatalogId: "js-cards-catalog",
@@ -15,9 +16,6 @@ class Pokemon {
             searchId: 'js-search',
         };
         this.cardSelector = '[data-pokemon]';
-
-
-        this.cardsCollection = [];
 
         this.API = "https://api.pokemontcg.io";
         this.APIversion = "v1";
@@ -30,7 +28,7 @@ class Pokemon {
         this.bindElements();
         this.pullCards();
         this.loadMoreButton.addEventListener("click", () => this.pullCards());
-        this.searchPokemonInput.addEventListener('keyup', (e) => this.searchPokemon(e))
+        this.searchPokemonInput.addEventListener('keyup', (e) => this.searchPokemon(e));
     }
 
     bindElements() {
@@ -73,10 +71,9 @@ class Pokemon {
 
     displayPokemon(index) {
         const pokemonCard = document.createElement("div");
-        pokemonCard.setAttribute('data-pokemon', `${this.cardsCollection[index].name}`)
+        pokemonCard.setAttribute('data-pokemon', `${this.cardsCollection[index].name}`);
         pokemonCard.classList.add("card");
         pokemonCard.innerHTML = `
-        
         <div class="card__upper-infos">
         <h6 class="card__title" id="js-cardTitle">${this.cardsCollection[index].name}</h6>
         <p class="card__number">Nr: <span class="card__number-id" id="js-cardNumber">${this.cardsCollection[index].number}</span></p>
@@ -95,13 +92,12 @@ class Pokemon {
     }
     
     searchPokemon(e) {
-        console.log(this.currentCards);
         const searchedName = (e.target.value).toLowerCase();
         this.currentCards.filter(card => {
             card.dataset.pokemon.toLowerCase().includes(searchedName)  ?
                 card.classList.remove('is-visible') :
                 card.classList.add('is-visible')
-        })
+        });
     }
 
 }
