@@ -1,7 +1,7 @@
 
 Pokemon cards fetching from the API
  
- # [Pokemon catalog](https://yakuza16.github.io/Pokemon-catalog/")
+ # [Pokemon catalog](https://yakuza16.github.io/Pokemon-catalog/.)
 
 ![](https://cdn0.iconfinder.com/data/icons/pokemon-go-vol-2/135/_Pokeball-256.png)
 
